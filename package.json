@@ -1,0 +1,14 @@
+{
+  "name": "angular-2-workshop",
+  "version": "1.0.0",
+  "author": "oddEVEN AG",
+  "license": "MIT",
+  "jspm": {
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  },
+  "devDependencies": {
+    "jspm": "^0.16.26"
+  }
+}
