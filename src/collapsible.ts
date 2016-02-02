@@ -5,13 +5,12 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
   template: `
     <h3 (click)="toggle()">{{title}}</h3>
     <div [style.display]="open ? 'block' : 'none'">
-      {{content}}
+      <ng-content></ng-content>
     </div>
   `
 })
 export class Collapsible {
   @Input() title;
-  @Input() content;
   @Output() opened = new EventEmitter();
   @Output() closed = new EventEmitter();
   open = false;
