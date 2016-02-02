@@ -13,11 +13,11 @@ import {Collapsible, CollapsibleTitle} from './collapsible';
   directives: [Collapsible, CollapsibleTitle]
 })
 export class App {
-  onOpened(collapsible) {
+  onOpened(collapsible: Collapsible) {
     console.log('Collapsible was opened', collapsible);
   }
 
-  onClosed(collapsible) {
+  onClosed(collapsible: Collapsible) {
     console.log('Collapsible was closed', collapsible);
   }
 }
