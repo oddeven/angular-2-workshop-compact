@@ -25,15 +25,14 @@ import {CalculationService} from './calculation-service';
   `
 })
 export class Calculator {
-  result = 0;
-  calculationService;
+  result: Number = 0;
+  calculationService: CalculationService;
 
-  constructor(@Inject(CalculationService) calculationService) {
+  constructor(@Inject(CalculationService) calculationService: CalculationService) {
     this.calculationService = calculationService;
   }
 
-  calculate(a, b, operator) {
-    this.calculationService.methodFromOperator(operator)(+a, +b);
-    this.result = this.calculationService.result;
+  calculate(a: String, b: String, operator: String) {
+    this.result = this.calculationService[operator](+a, +b);
   }
 }

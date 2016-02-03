@@ -1,12 +1,15 @@
+import {Injectable} from 'angular2/core';
+
+@Injectable()
 export class LogService {
-  static globalLoggerNr = 0;
-  loggerNr;
+  static globalLoggerNr: Number = 0;
+  loggerNr: Number;
 
   constructor() {
     this.loggerNr = LogService.globalLoggerNr++;
   }
 
-  log(message) {
+  log(message: String) {
     console.log(`Logger(${this.loggerNr}): ${message}`);
   }
 }
