@@ -1,14 +1,15 @@
 import {Component} from 'angular2/core';
-import {ToUpperPipe} from './to-upper-pipe';
+import {BlacklistPipe} from './blacklist-pipe';
 
 @Component({
   selector: 'app',
   template: `
-    <p *ngFor="#message of messages; #i = index">{{i}}: {{message | toUpper}}</p>
+    <p *ngFor="#message of messages; #i = index; #even = even"
+       [style.backgroundColor]="even ? 'gray' : null">{{i}}: {{message | blacklist}}</p>
     <input #inp type="text">
-    <button (click)="addMessage(inp.value)">Add</button>
+    <button (click)="addMessage(inp)">Add</button>
   `,
-  pipes: [ToUpperPipe]
+  pipes: [BlacklistPipe]
 })
 export class App {
   messages: Array<String>;
@@ -16,7 +17,8 @@ export class App {
     this.messages = ['One', 'Two', 'Three'];
   }
 
-  addMessage(message: String) {
-    this.messages.push(message);
+  addMessage(inputElement: HTMLInputElement) {
+    this.messages.push(inputElement.value);
+    inputElement.value = '';
   }
 }
